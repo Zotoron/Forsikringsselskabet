@@ -20,9 +20,9 @@
                             <DataGridTextColumn Header="Telefon" Binding="{Binding Telefon}"/>
                         </DataGrid.Columns>
                     </DataGrid>
-                    <Button Content="Slet" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="26" Width="72"/>
+                    <Button x:Name="btnSlet" Content="Slet" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="26" Width="72" Click="btnSlet_Click"/>
                     <Button x:Name="btnOpret" Content="Opret" HorizontalAlignment="Left" Margin="224,286,0,0" VerticalAlignment="Top" Height="21" Width="63" Grid.Column="1" Click="btnOpret_Click"/>
-                    <Button Content="Rediger" HorizontalAlignment="Left" Margin="224,324,0,0" VerticalAlignment="Top" Height="21" Width="63" Grid.Column="1"/>
+                    <Button x:Name="btnRediger" Content="Rediger" HorizontalAlignment="Left" Margin="224,324,0,0" VerticalAlignment="Top" Height="21" Width="63" Grid.Column="1" Click="btnRediger_Click"/>
                     <Label Content="Fornavn" HorizontalAlignment="Left" Margin="7,29,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.302,0.177" Grid.Column="1"/>
                     <TextBox x:Name="tbNavn" HorizontalAlignment="Left" Margin="97,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="26" Grid.Column="1"/>
                     <Label Content="Efternavn" HorizontalAlignment="Left" Margin="7,72,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.302,0.177" Grid.Column="1"/>
@@ -39,7 +39,34 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
             <TabItem Header="Bilmodeller">
-                <Grid Background="#FFE5E5E5"/>
+                <Grid Background="#FFE5E5E5">
+                    <DataGrid x:Name="BilListe" HorizontalAlignment="Right" Height="320" Margin="0,25,10,0" VerticalAlignment="Top" Width="491" AutoGenerateColumns="False" ItemsSource="{Binding FuncLayer.BilListe}">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                            <DataGridTextColumn Header="Brand" Binding="{Binding Mærke}"/>
+                            <DataGridTextColumn Header="Model" Binding="{Binding Model}"/>
+                            <DataGridTextColumn Header="StartYear" Binding="{Binding Startår}"/>
+                            <DataGridTextColumn Header="EndYear" Binding="{Binding Slutår}"/>
+                            <DataGridTextColumn Header="StandardPrice" Binding="{Binding Standardpris}"/>
+                            <DataGridTextColumn Header="StandardSum" Binding="{Binding Forsikringssum}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button x:Name="btnSletbil" Content="Slet" HorizontalAlignment="Right" Margin="0,0,10,10" VerticalAlignment="Bottom" Height="26" Width="72" Click="btnSletbil_Click"/>
+                    <Button x:Name="btnOpretbil" Content="Opret" HorizontalAlignment="Left" Margin="205,324,0,0" VerticalAlignment="Top" Height="21" Width="63" Click="btnOpretbil_Click"/>
+                    <Button x:Name="btnRedigerbil" Content="Rediger" HorizontalAlignment="Left" Margin="122,324,0,0" VerticalAlignment="Top" Height="21" Width="63" Click="btnRedigerbil_Click"/>
+                    <Label Content="Mærke" HorizontalAlignment="Left" Margin="7,29,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.302,0.177"/>
+                    <TextBox x:Name="tbMærke" HorizontalAlignment="Left" Margin="122,32,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="26"/>
+                    <Label Content="Model" HorizontalAlignment="Left" Margin="7,72,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.302,0.177"/>
+                    <TextBox x:Name="tbModel" HorizontalAlignment="Left" Margin="122,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="26"/>
+                    <Label Content="Startår" HorizontalAlignment="Left" Margin="7,115,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.302,0.177"/>
+                    <TextBox x:Name="tbStartår" HorizontalAlignment="Left" Margin="122,118,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="26"/>
+                    <Label Content="Slutår" HorizontalAlignment="Left" Margin="7,158,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.302,0.177"/>
+                    <TextBox x:Name="tbSlutår" HorizontalAlignment="Left" Margin="122,161,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="26"/>
+                    <Label Content="Standardpris" HorizontalAlignment="Left" Margin="7,202,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.302,0.177"/>
+                    <TextBox x:Name="tbStandardpris" HorizontalAlignment="Left" Margin="122,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="26"/>
+                    <Label Content="Forsikringssum" HorizontalAlignment="Left" Margin="7,250,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.302,0.177"/>
+                    <TextBox x:Name="tbForsikringssum" HorizontalAlignment="Left" Margin="122,253,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Height="26"/>
+                </Grid>
             </TabItem>
             <TabItem Header="Vejret">
                 <Grid Background="#FFE5E5E5"/>

@@ -28,6 +28,17 @@ namespace IsButik
             return liste;
         }
 
+        public ObservableCollection<BilModel> GetBilListe(DataTable table)
+        {
+            ObservableCollection<BilModel> liste = new ObservableCollection<BilModel>();
+            foreach (DataRow row in table.Rows)
+            {
+                BilModel bilmodel = GetBilModel(row);
+                liste.Add(bilmodel);
+            }
+            return liste;
+        }
+
         //public ObservableCollection<Bestilling> GetBestillingsliste(DataTable table)
         //{
         //    ObservableCollection<Bestilling> liste = new ObservableCollection<Bestilling>();
@@ -47,7 +58,21 @@ namespace IsButik
             kunde.Adresse = (string)row["Adresse"];
             kunde.Postnummer = (string)row["Postnummer"];
             kunde.Telefon = (string)row["Telefon"];
+            kunde.Id = (int)row["Id"];
             return kunde;
+        }
+
+        private BilModel GetBilModel(DataRow row)
+        {
+            BilModel bilmodel = new BilModel();
+            bilmodel.Mærke = (string)row["Mærke"];
+            bilmodel.Model = (string)row["Model"];
+            bilmodel.Startår = (string)row["Startår"];
+            bilmodel.Slutår = (string)row["Slutår"];
+            bilmodel.Standardpris = (string)row["Standardpris"];
+            bilmodel.Forsikringssum = (string)row["Forsikringssum"];
+            bilmodel.Id = (int)row["Id"];
+            return bilmodel;
         }
 
         //private Bestilling GetBestilling(DataRow bestillingsRow)
